@@ -20,7 +20,7 @@ window.onload = () => {
     clickOpenClose("zatvaranje", "navMeni", "none");
     clickOpenClose("emptySpace", "navMeni", "none");
 
-    if(url == "/" || url == "/index.html"){
+    if(url == "/musicstop/" || url == "/musicstop/index.html"){
         ispisCarousel();
         $("#coverPicture").slick({
             infinite: true,
@@ -32,7 +32,7 @@ window.onload = () => {
             draggable: false
         });
     }
-    if(url == "/shop.html"){
+    if(url == "/musicstop/shop.html"){
         ajaxCallBack("current", storeCurrent);
         $("#sortPrice").change(filterChange);
         $("#sortShowPerPage").change(filterChange);
@@ -44,7 +44,7 @@ window.onload = () => {
         clickOpenClose("zatvaranjeFilter", "filterShop", "none");
         clickOpenClose("zatvaranjeModal", "modalItem", "none");
     }
-    if(url == "/contact.html"){
+    if(url == "/musicstop/contact.html"){
 
         clickOpenClose("zatvaranjeSuccess", "messageSent", "none");
         let imePrezime = idUnos("fullNameMessage");
@@ -93,7 +93,7 @@ window.onload = () => {
             checkBoxCheck(selectReason, 2, "Please choose a reason.", errorBlocks);
         });
     }
-    if(url == "/cart.html"){
+    if(url == "/musicstop/cart.html"){
         ispisCart();
 
         let imePrezime = idUnos("fullName");
