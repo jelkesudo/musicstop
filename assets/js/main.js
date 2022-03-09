@@ -20,7 +20,7 @@ window.onload = () => {
     clickOpenClose("zatvaranje", "navMeni", "none");
     clickOpenClose("emptySpace", "navMeni", "none");
 
-    if(url == "/musicstop/" || url == "/musicstop/index.html"){
+    if(url == "/" || url == "/index.html"){
         ispisCarousel();
         $("#coverPicture").slick({
             infinite: true,
@@ -32,7 +32,7 @@ window.onload = () => {
             draggable: false
         });
     }
-    if(url == "/musicstop/shop.html"){
+    if(url == "/shop.html"){
         ajaxCallBack("current", storeCurrent);
         $("#sortPrice").change(filterChange);
         $("#sortShowPerPage").change(filterChange);
@@ -44,7 +44,7 @@ window.onload = () => {
         clickOpenClose("zatvaranjeFilter", "filterShop", "none");
         clickOpenClose("zatvaranjeModal", "modalItem", "none");
     }
-    if(url == "/musicstop/contact.html"){
+    if(url == "/contact.html"){
 
         clickOpenClose("zatvaranjeSuccess", "messageSent", "none");
         let imePrezime = idUnos("fullNameMessage");
@@ -78,7 +78,7 @@ window.onload = () => {
             }
         });
 
-        $("#dugmeReset").click(() => {
+        $("#messageReset").click(() => {
             for(let e of errorBlocks){
                 e.innerHTML = "";
             }
@@ -93,7 +93,7 @@ window.onload = () => {
             checkBoxCheck(selectReason, 2, "Please choose a reason.", errorBlocks);
         });
     }
-    if(url == "/musicstop/cart.html"){
+    if(url == "/cart.html"){
         ispisCart();
 
         let imePrezime = idUnos("fullName");
@@ -253,7 +253,7 @@ function ispisCart(){
     let ukupnaCena = 0;
     if(articlesInCart != undefined || articlesInCart){
         let brojac = 1;
-        html = "<table>";
+        html = "<table>"; //<td>${c.quantity}</td>
         for(let c of articlesInCart){
             for(let p of productsArray){
                 if(c.id == p.id){
@@ -261,40 +261,53 @@ function ispisCart(){
                                 <td>${brojac++}</td>
                                 <td><img src="assets/img/products/${p.img.src}" alt="${p.img.alt}"/></td>
                                 <td>${p.name}</td>
-                                <td>${c.quantity}</td>
+                                <td><button data-id="${c.id}" class="decrementQty">-</button><p>${c.quantity}</p><button data-id="${c.id}" class="incrementQty">+</button></td>
                                 <td>${parseFloat(p.price.new) * 1000 * parseFloat(c.quantity)} RSD</td>
-                                <td><button data-id="${c.id}" class="removeArticle">Remove one</button></td>
                                 <td><button data-id="${c.id}" class="removeArticleArray">Remove</button></td>
                             </tr>`;
                     ukupnaCena += parseFloat(p.price.new) * 1000 * parseFloat(c.quantity);
                 }
             }
         }
-        html += `<tr><td colspan="7"><h3>Total price: ${ukupnaCena} RSD</h3></td></tr></table>`;
+        html += `<tr><td colspan="6"><h3>Total price: ${ukupnaCena} RSD</h3></td></tr></table>`;
     }
     else{
-        html = `<table><tr><td colspan="7"><h3>The cart is empty. You can shop by clicking <a class="orange" href="shop.html">here</a></h3></td></tr></table>`;
+        html = `<table><tr><td colspan="6"><h3>The cart is empty. You can shop by clicking <a class="orange" href="shop.html">here</a></h3></td></tr></table>`;
     }
     $("#cartContent").html(html);
-    $('.removeArticle').click(ukloniIzKorpe);
     $('.removeArticleArray').click(ukloniIzKorpeCelo);
+    $('.incrementQty').click(increQty);
+    $('.decrementQty').click(decreQty);
 }
-function ukloniIzKorpe(){
-    let removeId = $(this).data("id");
-    let newArray = [];
+function increQty(){
+    let decide = $(this).data("id");
+    articlesInCart = getItemFromLocalStorage("cart");
     for(let a of articlesInCart){
-        if(a.id == removeId){
-            if(parseInt(a.quantity) > 1){
-                a.quantity = parseInt(a.quantity) - 1;
+        if(a.id == decide){
+            a.quantity++;
+            break;
+        }
+    }
+    setItemToLocalStorage("cart", articlesInCart);
+    ispisCart();
+}
+function decreQty(){
+    let decide = $(this).data("id");
+    let newArray = [];
+    articlesInCart = getItemFromLocalStorage("cart");
+    for(let a of articlesInCart){
+        if(a.id == decide){
+            if(a.quantity > 1){
+                a.quantity--;
             }
             else{
-                continue;
+                continue
             }
         }
         newArray.push(a);
     }
-    setItemToLocalStorage("cart", newArray);
-    korpaBroj();
+    articlesInCart = newArray;
+    setItemToLocalStorage("cart", articlesInCart);
     ispisCart();
 }
 function ukloniIzKorpeCelo(){
@@ -302,7 +315,7 @@ function ukloniIzKorpeCelo(){
     let newArray = [];
     for(let a of articlesInCart){
         if(a.id == removeId){
-                continue;
+            continue;
         }
         newArray.push(a);
     }
@@ -341,11 +354,11 @@ function ispisModal(data){
     }
 }
 function addToCart(){
-    let productId= $(this).data("id");
+    let currentId= $(this).data("id");
 
     if(articlesInCart){
         if(dodatoVec()){
-            povecanjeKolicina();
+            alert("dodato je vec");
         }
         else{
             dodajNovi();
@@ -359,28 +372,18 @@ function addToCart(){
     function dodajPrvi(){
         let productArray=[];
         productArray[0]={
-            id:productId,
+            id:currentId,
             quantity: 1
         }
         setItemToLocalStorage('cart',productArray);
     }
     function dodatoVec(){
-        return articlesInCart.filter(p=>p.id==productId).length
-    }
-    function povecanjeKolicina(){
-        let productFromStorage= getItemFromLocalStorage("cart");
-        for(let product of productFromStorage){
-            if(product.id==productId){
-                product.quantity++;
-                break;
-            }
-        }
-        setItemToLocalStorage("cart", productFromStorage);
+        return articlesInCart.filter(p=>p.id==currentId).length;
     }
     function dodajNovi(){
         let productsFromStorage = getItemFromLocalStorage("cart");
         productsFromStorage.push({
-            id:productId,
+            id:currentId,
             quantity: 1
         });
         setItemToLocalStorage("cart", productsFromStorage);

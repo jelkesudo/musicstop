@@ -1115,4 +1115,187 @@ form .formaPoljeRadio .radioDugme .labelaRadio {
   background-color: #121212;
   color: white;
 }
+
+@media screen and (max-width: 1450px) {
+  body main .blackCollection .blackTekst {
+    padding: 0px;
+  }
+  #modalItem .modalContent {
+    width: 70%;
+  }
+  body .contactShop .autorText, body .contactShop .autorSlika {
+    width: 100%;
+  }
+  body .contactShop .autorText h2 {
+    text-align: center;
+  }
+  body .contactShop {
+    padding-top: 150px;
+    padding-bottom: 100px;
+  }
+  body .contactShop .autorSlika {
+    text-align: center;
+  }
+  body .contactShop {
+    width: 80%;
+  }
+  body .contactShop .autorText {
+    padding: 50px;
+    padding-bottom: 0px;
+  }
+}
+
+@media screen and (max-width: 1030px) {
+  body main #cover .bannerBlack .centerBlack {
+    width: 50%;
+  }
+  body main #cover .bannerBlack .centerBlack a .buttonShop {
+    width: 40%;
+  }
+  body main .blackCollection .blackTekst p {
+    line-height: 1.3;
+  }
+  body #filterShop .filterFlexFullSpace {
+    width: 35%;
+  }
+  body #filterShop #filterFlexEmptySpace {
+    width: 65%;
+    height: 100vh;
+  }
+  body main .containerShop #contentShop #articlesShop .article .nameArticle h3 {
+    font-size: 18px;
+  }
+  #modalItem .modalContent #ispisModal {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+  #modalItem .modalContent #ispisModal .slikaModal, #modalItem .modalContent #ispisModal .modalText {
+    width: 100%;
+    text-align: center;
+  }
+  #modalItem .modalContent #ispisModal .slikaModal img {
+    width: 40%;
+  }
+  #modalItem .modalContent #ispisModal .modalText {
+    margin-left: 0px;
+  }
+  #modalItem .modalContent #ispisModal .modalText .cene, #modalItem .modalContent #ispisModal .modalText .cene .cena {
+    width: 100%;
+  }
+  body main .containerShop #contentShop .sortShop .sort select, body main .containerShop #contentShop .sortShop .sort input {
+    width: 30%;
+  }
+  body main .containerShop #contentShop .sortShop .filterButtonDiv #buttonFilter {
+    width: 100%;
+  }
+  body #navMeni #navigacija {
+    width: 35%;
+  }
+  body main .containerShop #contentShop #articlesShop {
+    width: 100%;
+  }
+  body .contactShop {
+    width: 100%;
+  }
+}
+
+@media screen and (max-width: 770px) {
+  body header #logo h1 {
+    font-size: 20px;
+  }
+  body header .ikonice #hamburger h2 {
+    font-size: 25px;
+  }
+  body header .ikonice #cart {
+    padding-top: 7px;
+  }
+  body header .ikonice #cart a i {
+    font-size: 15px;
+  }
+  body main #cover .bannerBlack .centerBlack {
+    width: 70%;
+  }
+  body .contactShop .autorSlika img {
+    width: 100%;
+  }
+  body header .ikonice {
+    width: 10%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+  }
+  body main .blackCollection .blackSlike {
+    display: none;
+  }
+  body main .blackCollection .blackTekst {
+    width: 80%;
+  }
+  .prviNaslov::after {
+    height: 0px;
+  }
+  body main .blackCollection .profileBlack, body main .blackCollection .blackTekst {
+    width: 50%;
+  }
+  body main .blackCollection .blackTekst {
+    padding: 20px 0px;
+  }
+  body main #bannerShop .naslovShop .textNaslov {
+    width: 50%;
+  }
+  body main .containerShop #contentShop #articlesShop .article {
+    width: 48%;
+  }
+  body main .containerShop #contentShop #articlesShop {
+    border-bottom: none;
+  }
+  body main .containerShop {
+    padding-bottom: 0px;
+  }
+  body #filterShop .filterFlexFullSpace, body #filterShop #filterFlexEmptySpace, body #navMeni #emptySpace, body #navMeni #navigacija {
+    width: 50%;
+  }
+  body .contactShop .form, body .contactShop .iframe {
+    width: 100%;
+  }
+}
+
+@media screen and (max-width: 430px) {
+  body main #cover, body main #cover .bannerBlack, body main #cover #coverPicture .imageModel img {
+    height: 60vh;
+  }
+  body main #cover .bannerBlack .centerBlack {
+    width: 100%;
+  }
+  body main .blackCollection .profileBlack, body main .blackCollection .blackTekst {
+    width: 90%;
+  }
+  body main .containerShop #contentShop #articlesShop .article {
+    width: 100%;
+  }
+  #modalItem .modalContent #ispisModal .slikaModal img {
+    width: 100%;
+  }
+  body #filterShop, body #navMeni #navigacija .filterFlexFullSpace {
+    width: 100%;
+  }
+  body #filterShop #filterFlexEmptySpace, body #navMeni #emptySpace {
+    display: none;
+  }
+  body header .ikonice {
+    width: 15%;
+  }
+  body #navMeni #navigacija, body #filterShop .filterFlexFullSpace {
+    width: 75%;
+  }
+  body #navMeni #emptySpace, body #filterShop #filterFlexEmptySpace {
+    width: 25%;
+  }
+}
 /*# sourceMappingURL=style.css.map */
