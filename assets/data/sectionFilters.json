@@ -1,0 +1,18 @@
+[
+    {
+        "id": 1,
+        "name": "general"
+    },
+    {
+        "id": 2,
+        "name": "type"
+    },
+    {
+        "id": 3,
+        "name": "brand"
+    },
+    {
+        "id": 4,
+        "name": "collection"
+    }
+]

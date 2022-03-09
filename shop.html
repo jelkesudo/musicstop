@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8"/>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <meta name="author" content="Filip Jelić"/>
+        <meta name="keywords" content="black. black"/>
+        <meta name="description" content="World wide web page of `black.` company."/>
+        <link rel="stylesheet" type="text/css" href="assets/css/style.css"/>
+        <link rel="shortcut icon" href="assets/img/logo.ico"/>
+        <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
+        <script src="https://kit.fontawesome.com/80203d7dc5.js" crossorigin="anonymous"></script>
+        <title>MusicStop | Shop</title>
+    </head>
+    <body>
+        <div id="modalItem">
+            <div class="modalContent">
+                <div id="zatvaranjeModal">
+                    <h2>&Cross;</h2>
+                </div>
+                <div id="ispisModal">
+                    
+                </div>
+            </div>
+        </div>
+        <div id="filterShop">
+            <div class="filterFlexFullSpace">
+                <div class="fliterFlex">
+                    <div id="zatvaranjeFilter">
+                        <h2>&Cross;</h2>
+                    </div>
+                    <h2>Filters</h2>
+                    <div class="sectionFilter">
+                        <input type="range" id="rasponCene" value="200000" min="0" max="200000"/>
+                        <div class="priceRangeCount">
+                            <div class="minValue">
+                                <p>0 RSD</p>
+                            </div>
+                            <div class="maxValue">
+                                <p><span id="priceValueRange">200000</span> RSD</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="filterShopCategories">
+                        <!-- generated with javascript -->
+                    </div>
+                </div>
+            </div>
+            <div id="filterFlexEmptySpace">
+                    
+            </div>
+        </div>
+        <div id="navMeni">
+            <div id="emptySpace"></div>
+            <nav id="navigacija">
+                <div id="zatvaranje">
+                    <h2>&Cross;</h2>
+                </div>
+                <div class="listaMeni">
+                    <ul id="meniLista">
+                        <!-- generated with javascript -->
+                    </ul>
+                </div>
+            </nav>
+        </div>
+        <header id="header">
+            <div id="logo">
+                <a href="index.html"><h1>MusicStop</h1></a>
+            </div>
+            <div class="ikonice">
+                <div id="hamburger">
+                    <h2>&equiv;</h2>
+                </div>
+                <div id="cart">
+                    <a href="cart.html"><i class="fa-solid fa-cart-shopping"></i><p id="numberSold">0</p></a>
+                </div>
+            </div>
+        </header>
+        <main>
+            <div id="bannerShop" class="pt-50">
+                <div class="naslovShop">
+                    <div class="textNaslov">
+                        <div class="shopNaslov treciNaslov">
+                            <h2>Shop</h2>
+                        </div>
+                        <p>Check out the collection in our shop!</p>
+                    </div>
+                </div>
+            </div>
+            <div class="containerShop">
+                <div id="contentShop">
+                    <div class="sortShop">
+                        <div class="filterButtonDiv">
+                            <div id="buttonFilter">Filter...</div>
+                        </div>
+                        <div class="sort">
+                            <select name="sortPrice" id="sortPrice">
+                                <option value="0">Sort by...</option>
+                                <option value="A-Z">Name A-Z</option>
+                                <option value="Z-A">Name Z-A</option>
+                                <option value="asc">Price ascending</option>
+                                <option value="desc">Price descending</option>
+                            </select>
+                            <!-- <select name="sortShowPerPage" id="sortShowPerPage">
+                                <option value="30">3 in a row</option>
+                                <option value="22">4 in a row</option>
+                                <option value="18">5 in a row</option>
+                            </select> -->
+                            <input type="text" id="searchProducts" placeholder="&#xF002; Search articles" style="font-family:Arial, FontAwesome"/>
+                        </div>
+                    </div>
+                    <div id="articlesShop">
+                        <!-- generated with javascript --> 
+                    </div>
+                </div>
+            </div>
+        </main>
+        <footer>
+            <nav>
+                <ul id="footerNav">
+                    <!-- generated with javascript -->
+                </ul>
+            </nav>
+            <div class="copyright">
+               <p>&copy;Copyright <a href="https://jelkesudo.github.io/portfolio/" target="_blank">Filip Jelić</a> 2022 - Visoka ICT</p>
+            </div>
+        </footer>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+        <script type="text/javascript" src="assets/js/main.js"></script>
+    </body>
+</html>

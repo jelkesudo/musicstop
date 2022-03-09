@@ -1,0 +1,337 @@
+[
+    {
+        "id": 1,
+        "name": "Fender FA-125 Dreadnought",
+        "img":{
+            "src": "gitara1.png",
+            "alt": "gitara1"
+        },
+        "price":{
+            "old": null,
+            "new": "17.000"
+        },
+        "type": 1,
+        "brand": 1,
+        "current": 1,
+        "collection": 2
+    },
+    {
+        "id": 2,
+        "name": "Yamaha FG820 Sunset Blue",
+        "img":{
+            "src": "gitara2.png",
+            "alt": "gitara2"
+        },
+        "price":{
+            "old": "32.000",
+            "new": "25.000"
+        },
+        "type": 1,
+        "brand": 4,
+        "current": 1,
+        "collection": 1
+    },
+    {
+        "id": 3,
+        "name": "Jackson JS Series Dinky™ RED",
+        "img":{
+            "src": "gitara3.png",
+            "alt": "gitara3"
+        },
+        "price":{
+            "old": null,
+            "new": "43.000"
+        },
+        "type": 1,
+        "brand": 6,
+        "current": 2,
+        "collection": null
+    },
+    {
+        "id": 4,
+        "name": "Ibanez AC240-OPN",
+        "img":{
+            "src": "gitara4.png",
+            "alt": "gitara4"
+        },
+        "price":{
+            "old": "52.000",
+            "new": "40.000"
+        },
+        "type": 1,
+        "brand": 5,
+        "current": 1,
+        "collection": 1
+    },
+    {
+        "id": 5,
+        "name": "Squier By Fender Bullet Stratocaster",
+        "img":{
+            "src": "gitara5.png",
+            "alt": "gitara5"
+        },
+        "price":{
+            "old": null,
+            "new": "21.000"
+        },
+        "type": 1,
+        "brand": 3,
+        "current": 2,
+        "collection": null
+    },
+    {
+        "id": 6,
+        "name": "Yamaha C30 II classic guitar",
+        "img":{
+            "src": "gitara10.png",
+            "alt": "gitara10"
+        },
+        "price":{
+            "old": "35.000",
+            "new": "29.000"
+        },
+        "type": 1,
+        "brand": 4,
+        "current": 1,
+        "collection": 1
+    },
+    {
+        "id": 7,
+        "name": "LTD Surveyor 400 Bass Black",
+        "img":{
+            "src": "gitara7.png",
+            "alt": "gitara7"
+        },
+        "price":{
+            "old": "98.000",
+            "new": "75.000"
+        },
+        "type": 2,
+        "brand": 7,
+        "current": 2,
+        "collection": 1
+    },
+    {
+        "id": 8,
+        "name": "Gibson Custom Les Paul Axcess",
+        "img":{
+            "src": "gitara8.png",
+            "alt": "gitara8"
+        },
+        "price":{
+            "old": null,
+            "new": "158.000"
+        },
+        "type": 1,
+        "brand": 2,
+        "current": 2,
+        "collection": 2
+    },
+    {
+        "id": 9,
+        "name": "Fender FA-450CE LRL 3TS",
+        "img":{
+            "src": "gitara9.png",
+            "alt": "gitara9"
+        },
+        "price":{
+            "old": "75.000",
+            "new": "65.000"
+        },
+        "type": 2,
+        "brand": 1,
+        "current": 1,
+        "collection": 1
+    },
+    {
+        "id": 10,
+        "name": "Jackson JS Series Dinky™ BLUE",
+        "img":{
+            "src": "gitara6.png",
+            "alt": "gitara6"
+        },
+        "price":{
+            "old": null,
+            "new": "43.000"
+        },
+        "type": 1,
+        "brand": 6,
+        "current": 2,
+        "collection": null
+    },
+    {
+        "id": 11,
+        "name": "Sigma BME",
+        "img":{
+            "src": "gitara11.png",
+            "alt": "gitara11"
+        },
+        "price":{
+            "old": null,
+            "new": "95.000"
+        },
+        "type": 2,
+        "brand": 8,
+        "current": 1,
+        "collection": null
+    },
+    {
+        "id": 12,
+        "name": "Fender Montecito Tenor Ukulele",
+        "img":{
+            "src": "gitara12.png",
+            "alt": "gitara12"
+        },
+        "price":{
+            "old": null,
+            "new": "28.287"
+        },
+        "type": 3,
+        "brand": 1,
+        "current": 1,
+        "collection": 2
+    },
+    {
+        "id": 13,
+        "name": "Fender Fullerton Tele Uke Black",
+        "img":{
+            "src": "gitara13.png",
+            "alt": "gitara13"
+        },
+        "price":{
+            "new": "24.429"
+        },
+        "type": 3,
+        "brand": 1,
+        "current": 2,
+        "collection": null
+    },
+    {
+        "id": 14,
+        "name": "Fender Billie Eilish Signature Ukulele",
+        "img":{
+            "src": "gitara14.png",
+            "alt": "gitara14"
+        },
+        "price":{
+            "old": null,
+            "new": "31.296"
+        },
+        "type": 3,
+        "brand": 1,
+        "current": 1,
+        "collection": 3
+    },
+    {
+        "id": 15,
+        "name": "LTD Surveyor 405 NAT",
+        "img":{
+            "src": "gitara15.png",
+            "alt": "gitara15"
+        },
+        "price":{
+            "old": "93.526",
+            "new": "85.000"
+        },
+        "type": 2,
+        "brand": 7,
+        "current": 1,
+        "collection": 1
+    },
+    {
+        "id": 16,
+        "name": "Ibanez SR300-IPT",
+        "img":{
+            "src": "gitara16.png",
+            "alt": "gitara16"
+        },
+        "price":{
+            "old": null,
+            "new": "37.679"
+        },
+        "type": 2,
+        "brand": 5,
+        "current": 2,
+        "collection": 2
+    },
+    {
+        "id": 17,
+        "name": "Gibson Thunderbird Bass Vintage Sunburst",
+        "img":{
+            "src": "gitara17.png",
+            "alt": "gitara17"
+        },
+        "price":{
+            "old": null,
+            "new": "166.054"
+        },
+        "type": 2,
+        "brand": 2,
+        "current": 2,
+        "collection": null
+    },
+    {
+        "id": 18,
+        "name": "Squier By Fender Classic Vibe Precision",
+        "img":{
+            "src": "gitara18.png",
+            "alt": "gitara18"
+        },
+        "price":{
+            "old": null,
+            "new": "166.054"
+        },
+        "type": 2,
+        "brand": 3,
+        "current": 2,
+        "collection": null
+    },
+    {
+        "id": 19,
+        "name": "Yamaha C70 classic guitar",
+        "img":{
+            "src": "gitara19.png",
+            "alt": "gitara19"
+        },
+        "price":{
+            "old": null,
+            "new": "29.561"
+        },
+        "type": 1,
+        "brand": 4,
+        "current": 1,
+        "collection": null
+    },
+    {
+        "id": 20,
+        "name": "Sigma DTCE+",
+        "img":{
+            "src": "gitara20.png",
+            "alt": "gitara20"
+        },
+        "price":{
+            "old": null,
+            "new": "35.620"
+        },
+        "type": 1,
+        "brand": 8,
+        "current": 1,
+        "collection": 2
+    },
+    {
+        "id": 21,
+        "name": "Jackson JS Series Signature Gus G. Star",
+        "img":{
+            "src": "gitara21.png",
+            "alt": "gitara21"
+        },
+        "price":{
+            "old": "68.249",
+            "new": "52.513"
+        },
+        "type": 1,
+        "brand": 4,
+        "current": 2,
+        "collection": 1
+    }
+]

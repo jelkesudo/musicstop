@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8"/>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <meta name="author" content="Filip Jelić"/>
+        <meta name="keywords" content="black. black"/>
+        <meta name="description" content="World wide web page of `black.` company."/>
+        <link rel="stylesheet" type="text/css" href="assets/css/style.css"/>
+        <link rel="shortcut icon" href="assets/img/logo.ico"/>
+        <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
+        <script src="https://kit.fontawesome.com/80203d7dc5.js" crossorigin="anonymous"></script>
+        <title>MusicStop | Home</title>
+    </head>
+    <body>
+        <div id="messageSent" class="successModal">
+            <div class="messageBox">
+                <div id="zatvaranjeSuccess">
+                    <h2>&Cross;</h2>
+                </div>
+                <div id="messageSentSuccesfully" class="messageContent">
+                    <h3>You have successfully filled out the form, we will reach you as soon as possible.</h3>
+                    <a href="shop.html"><button>Go back to the shop</button></a>
+                </div>
+            </div>
+        </div>
+        <div id="navMeni">
+            <div id="emptySpace"></div>
+            <nav id="navigacija">
+                <div id="zatvaranje">
+                    <h2>&Cross;</h2>
+                </div>
+                <div class="listaMeni">
+                    <ul id="meniLista">
+                        <!-- generated with javascript -->
+                    </ul>
+                </div>
+            </nav>
+        </div>
+        <header id="header">
+            <div id="logo">
+                <a href="index.html"><h1>MusicStop</h1></a>
+            </div>
+            <div class="ikonice">
+                <div id="hamburger">
+                    <h2>&equiv;</h2>
+                </div>
+                <div id="cart">
+                    <a href="cart.html"><i class="fa-solid fa-cart-shopping"></i><p id="numberSold">0</p></a>
+                </div>
+            </div>
+        </header>
+        <main>
+            <div class="cartShop">
+                <div id="cartContent">
+                </div>
+                <div class="formaCartBlock">
+                    <form action="" id="formaCart">
+                        <div class="formaPolje">
+                            <label for="fullName">Full Name</label>
+                            <input type="text" name="fullName" id="fullName"/>
+                            <div class="error"></div>
+                        </div>
+                        <div class="formaPolje">
+                            <label for="email">Email</label>
+                            <input type="email" name="email" id="email"/>
+                            <div class="error"></div>
+                        </div>
+                        <div class="formaPolje">
+                            <label for="adress">Adress</label>
+                            <input type="text" name="adress" id="adress"/>
+                            <div class="error"></div>
+                        </div>
+                        <div class="formaPoljeRadio">
+                            <div class="radioDugme">
+                                <div class="labelaRadio">
+                                    <label for="person">Person</label>
+                                </div>
+                                <div class="inputRadio">
+                                    <input type="radio" name="entity" id="person" value="home"/>
+                                </div>
+                            </div>
+                            <div class="radioDugme">
+                                <div class="labelaRadio">
+                                    <label for="store">Legal entity</label>
+                                </div>
+                                <div class="inputRadio">
+                                    <input type="radio" name="entity" id="legal" value="legal"/>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="error"></div>
+                        <div class="formaPolje dugme">
+                            <button type="submit" id="dugmeSubmit">Order</button>
+                        </div>
+                        <div class="formaPolje dugme">
+                            <button type="reset" id="dugmeReset">Reset</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </main>
+        <footer>
+            <nav>
+                <ul id="footerNav">
+                    <!-- generated with javascript -->
+                </ul>
+            </nav>
+            <div class="copyright">
+               <p>&copy;Copyright <a href="https://jelkesudo.github.io/portfolio/" target="_blank">Filip Jelić</a> 2022 - Visoka ICT</p>
+            </div>
+        </footer>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+        <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+        <script type="text/javascript" src="assets/js/main.js"></script>
+    </body>
+</html>

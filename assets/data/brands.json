@@ -1,0 +1,34 @@
+[
+    {
+        "id": 1,
+        "name": "fender"
+    },
+    {
+        "id": 2,
+        "name": "gibson"
+    },
+    {
+        "id": 3,
+        "name": "squier"
+    },
+    {
+        "id": 4,
+        "name": "yamaha"
+    },
+    {
+        "id": 5,
+        "name": "ibanez"
+    },
+    {
+        "id": 6,
+        "name": "jackson"
+    },
+    {
+        "id": 7,
+        "name": "ltd"
+    },
+    {
+        "id": 8,
+        "name": "sigma"
+    }
+]

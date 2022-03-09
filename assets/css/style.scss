@@ -1,0 +1,819 @@
+//https://fonts.google.com/specimen/Josefin+Sans?vfonly=true
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans&display=swap');
+$crna: #121212;
+*{
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+ul{
+    list-style-type: none;
+}
+a{
+    text-decoration: none;
+    color: black;
+}
+@mixin fleks{
+    display: flex;
+    flex-wrap: wrap;
+}
+@mixin space-a{
+    justify-content: space-around;
+}
+@mixin space-b{
+    justify-content: space-between;
+}
+@mixin js-center{
+    justify-content: center;
+}
+@mixin ai-center{
+    align-items: center;
+}
+@mixin after1{
+    ::after{
+        content: "";
+        display: block;
+        margin: 5px 0px;
+        width: 10%;
+        height: 3px;
+        background-color: $crna;
+    }
+}
+@mixin after2{
+    ::after{
+        content: "";
+        display: block;
+        margin: 5px auto;
+        width: 10%;
+        height: 3px;
+        background-color: $crna;
+    }
+}
+@mixin after3{
+    ::after{
+        content: "";
+        display: block;
+        margin: 5px auto;
+        width: 7%;
+        height: 3px;
+        background-color: white;
+    }
+}
+@mixin fleksKolona{
+    flex-direction: column;
+}
+body{
+    background-image: url("../img/pOpacity.png");
+    font-family: 'Josefin Sans', sans-serif;
+    color: $crna;
+    #navMeni{
+        width:100%;
+        height: 100vh;
+        position: fixed;
+        top: 0;
+        left: 0;
+        z-index: 9;
+        display: none;
+        @include space-a;
+        background-color: rgba(0, 0, 0, 0.5);
+        #emptySpace{
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 75%;
+            height: 100vh;
+        }
+        #navigacija{
+            position: absolute;
+            top: 0;
+            right: 0;
+            @include fleks;
+            @include js-center;
+            @include ai-center;
+            width: 25%;
+            height: 100vh;
+            z-index: 9;
+            background-color: white;     
+            #zatvaranje{
+                position: absolute;
+                top: 2px;
+                left: 10px;
+                cursor: pointer;
+                font-size: 20px; 
+            }
+            .listaMeni{
+                width: 20%;
+                ul{
+                    li{
+                        padding: 15px 0px;
+                        a{
+                            font-size: 20px;
+                        }
+                        :hover{
+                            color: red;
+                            transition: 0.5s;
+                        }
+                    }
+                }
+            }
+        }
+    }
+    header{
+        z-index: 8;
+        width: 100%;
+        padding: 10px 0px;
+        position: fixed;
+        background-color: $crna;
+        color: white;
+        @include fleks;
+        @include space-a;
+        #logo{
+            width: 5%;
+            padding-top: 5px;
+            a{
+                h1{
+                    color: white;
+                }
+            }
+        }
+        .ikonice{
+            width: 5%;
+            @include fleks;
+            @include js-center;
+            #hamburger, #cart{
+                width: 48%;
+                cursor: pointer;
+            }
+            #hamburger{
+                height: 0;
+                h2{
+                    font-size: 30px;
+                }
+            }
+            #cart{
+                width: 10%;
+                height: 10px;
+                padding-top: 10px;
+                a{
+                    color: white;
+                    color: white;
+                    position: relative;  
+                }
+                #numberSold{
+                    display: none;
+                    width: 20px;
+                    height: 20px;
+                    text-align: center;
+                    position: absolute;
+                    bottom: 10px;
+                    left: 10px;
+                    background-color: red;
+                    border-radius: 50%;
+                    padding-top: 3px;
+                } 
+            }
+        }
+    }
+    #filterShop{
+        position: fixed;
+        display: none;
+        flex-wrap: wrap;
+        justify-content: flex-start;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100vh;
+        background-color: rgba(0, 0, 0, 0.7);
+        z-index: 9;
+        .filterFlexFullSpace{
+            width: 25%;
+            height: 100vh;
+            background-color: white; 
+            @include fleks;
+            @include js-center;
+            @include ai-center;
+            position: relative;
+            #zatvaranjeFilter{
+                position: absolute;
+                top: 2px;
+                right: 10px;
+                cursor: pointer;
+                font-size: 20px; 
+            }
+            .fliterFlex{
+                width: 90%;
+                .sectionFilter{
+                    width: 100%;
+                    @include fleks;
+                    @include fleksKolona;
+                    border-bottom: 1px solid $crna;
+                    padding: 10px 0px;
+                    .priceRangeCount{
+                        width: 100%;
+                        @include fleks;
+                        @include space-b;
+                    }
+                    .sectionNaslov{  
+                        cursor: pointer;
+                        @include fleks;
+                        @include js-center;
+                        .textNaslov{
+                            width: 90%;
+                            text-transform: capitalize;
+                        }
+                        .strelica{
+                            width: 10%;
+                        }
+                    }
+                    .checkboxes{
+                        display: flex;
+                        flex-wrap: wrap;
+                        @include fleksKolona;
+                        width: 100%;
+                        .checkboxPiece{
+                            width: 100%;
+                            input[type=checkbox]{
+                                width: 15px;
+                                height: 15px;
+                                margin: 10px 0px;
+                                margin-left: 50px;
+                            }
+                            label{
+                                font-size: 1.2em;
+                                margin-left: 10px;
+                                text-transform: capitalize;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        #filterFlexEmptySpace{
+            width: 75%;
+            height: 100vh;
+        }
+    }
+    main{
+        margin: 0px auto;
+        #cover{
+            width: 100%;
+            height: 100vh;
+            position: relative;
+            @include fleks;
+            @include js-center;
+            @include ai-center;
+            #coverPicture{
+                width: 100%;
+                .imageModel{
+                    width: 100%;
+                    height: 100%;
+                    img{
+                        width: 100%;
+                        height: 100vh;
+                    }
+                }
+            }
+            .bannerBlack{
+                position: absolute;
+                z-index: 7;
+                width: 100%;
+                height: 100vh;
+                background-color: rgba(0, 0, 0, 0.7);
+                color: white;
+                @include fleks;
+                @include js-center;
+                @include ai-center;
+                .centerBlack{
+                    width: 30%;
+                    color: white;
+                    text-align: center;
+                    h1{
+                        padding-bottom: 50px;   
+                    }
+                    a{
+                        color: white;
+                        .buttonShop{
+                            width: 30%;
+                            margin: 0px auto;
+                            background-color: $crna;
+                            padding: 10px 20px;
+                            outline: none;
+                            border: none;
+                            cursor: pointer;
+                        }
+                        :hover{
+                            background-color: rgb(233, 125, 23);
+                            transition: 0.5s;
+                        }
+                    }
+                }
+            }
+        }
+        .blackCollection{
+            padding-top: 50px;
+            width: 100%;
+            @include fleks;
+            @include js-center;
+            .blackSlike,.blackTekst, .profileBlack{
+                width: 30%;
+            }
+            .blackSlike{
+                position: relative;
+                .imageBlack{
+                    width: 100%;
+                    position: absolute;
+                    img{
+                        width: 50%;
+                        border: 1px solid $crna;
+                    }
+                }
+                .prva{
+                    top: 0;
+                    left: 0;
+                }
+                .druga{
+                    top: 50%;
+                    left: 25%;
+                }
+            }
+            .blackTekst{
+                padding: 100px 0px;
+                .headingNaslov{ 
+                    width: 100%;
+                    h2{
+                        padding-bottom: 30px;
+                    }
+                }
+                p{
+                    line-height: 2.2;
+                }
+            }
+            .profileBlack{
+                img{
+                    width: 100%;
+                }
+            }
+        }
+        #bannerShop{
+            width: 100%;
+            height: 50vh;
+            background-image: url("../img/model1.jpg");
+            background-position: center;
+            background-repeat: no-repeat;
+            .naslovShop{
+                width: 100%;
+                height: 100%;
+                background-color: rgba(0, 0, 0, 0.7);
+                @include fleks;
+                @include js-center;
+                @include ai-center;
+                .textNaslov{
+                    width: 30%;
+                    text-align: center;
+                    color: white;
+                    .shopNaslov{
+                        width: 100%;
+                        font-size: 1.5em;
+                        padding: 20px 0px;
+                    }
+                }
+            }
+        }
+        .containerShop{
+            width: 100%;
+            padding: 50px 0px;
+            margin: 0px auto;
+            @include fleks;
+            @include js-center;
+            #contentShop{
+                width: 100%;
+                @include fleks;
+                @include fleksKolona;
+                .sortShop{
+                    width: 90%;
+                    position: sticky;
+                    @include fleks;
+                    @include space-b;
+                    margin: 0px auto;
+                    .filterButtonDiv{
+                        width: 20%;
+                        #buttonFilter{
+                            width: 50%;
+                            padding: 10px 20px;
+                            background-color: rbga(0, 0, 0, 0);
+                            border: 1px solid black;
+                            text-align: center;
+                            cursor: pointer;
+                        }
+                        :hover{
+                            background-color: $crna;
+                            color: white;
+                            transition: 0.5s;
+                        }
+                    }
+                    .sort{
+                        width: 70%;
+                        @include fleks;
+                        justify-content: flex-end;
+                        select, input{
+                            width: 20%;
+                            margin: 0px 20px;
+                            border: none;
+                            background-color: rgba(0, 0, 0, 0);
+                            border-bottom: 1px solid $crna;
+                            padding: 5px 10px;
+                            outline: none;
+                        }
+                    }
+                }
+                #articlesShop{
+                    width: 90%;
+                    padding: 20px 0px;
+                    margin: 20px auto;
+                    border-top: 3px solid $crna;
+                    border-bottom: 3px solid $crna;
+                    @include fleks;
+                    @include js-center;
+                    text-align: center;
+                    .article{
+                        width: 30%;
+                        padding: 5px 0px;
+                        .slikaArticle{
+                            width: 60%;
+                            margin: 0px auto;
+                            position: relative;
+                            .collection{
+                                width: 35px;
+                                height: 35px;
+                                position: absolute;
+                                top: 10px;
+                                right: 10px;
+                                background-color: $crna;
+                                color: white;
+                                img{
+                                    cursor: auto;
+                                    width: 100%;
+                                    border: 1px solid black;
+                                }
+                                img:hover{
+                                    width: 100%;
+                                    border: 1px solid black;
+                                }
+                            }
+                            img{
+                                width: 100%;
+                                cursor: pointer;
+                                border: 3px solid black;
+                            }
+                            img:hover{
+                                border: 1px solid black;
+                                transition: 0.5s;
+                            }
+                        }
+                        .nameArticle{
+                            padding: 10px 0px;
+                        }
+                        .price{
+                            @include fleks;
+                            @include js-center;
+                            padding-bottom: 10px;
+                            .newPrice, .oldPrice{
+                               .dinar{
+                                   font-size: 12px;
+                               }
+                            }
+                            .newPrice{
+                                padding-right: 5px;
+                                text-align: right;
+                            }
+                        }
+                        .sizes{
+                            width: 100%;
+                            p{
+                                padding-bottom: 10px;
+                                font-size: 12px;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+    .contactShop{
+        width: 60%;
+        margin: 0px auto;
+        padding: 150px 0px;
+        @include fleks;
+        @include space-a;
+        .form, .iframe{
+            width: 48%;
+        }
+        .form{
+            @include fleks;
+            @include js-center;
+            @include ai-center;
+        }
+        .iframe{
+            iframe{
+                width: 100%;
+                height: 100%;
+            }
+        }
+        .autorSlika{
+            width: 30%;
+        }
+        .autorText{
+            width: 70%;
+            padding: 50px;
+            padding-top: 100px;
+            h2{
+                padding-bottom: 30px;
+            }
+            p{
+                line-height: 1.7em;
+            }
+        }
+    }
+    .cartShop{
+        width: 90%;
+        margin: 0px auto;
+        padding: 150px 0px;
+        @include fleks;
+        @include space-a;
+        #cartContent{
+            width: 60%;
+            table{
+                width: 100%;
+                border: 1px solid black;
+                border-collapse: collapse;
+                tr{
+                    th, td{
+                        padding: 10px 20px;
+                        border: 1px solid black;
+                        border-collapse: collapse;
+                        text-align: center;
+                        img{
+                            width: 30%;
+                        }
+                        button{
+                            background-color: rgba(0, 0, 0, 0);
+                            border: 1px solid black;
+                            padding: 5px 10px;  
+                            cursor: pointer;
+                        }
+                        button:hover{
+                            transition: 0.5s;
+                            background-color: $crna;
+                            color: white;
+                        }
+                    }
+                }
+            }
+        }
+        .formaCartBlock{
+            width: 30%;
+        }
+    }
+    footer{
+        @include fleks;
+        @include fleksKolona;
+        background-color: $crna;
+        color: white;
+        text-align: center;
+        nav, .copyright{
+            width: 100%;
+        }
+        nav{
+            padding-top: 20px;
+            ul{
+                li{
+                    padding: 15px 0px;
+                    a{
+                        color: white;
+                    }
+                }
+            }
+        }
+        .copyright{
+            padding: 5px 0px;
+            p{
+                a{
+                    color: rgb(233, 125, 23);
+                }
+            }
+        }
+    }
+}
+.aPortfolio{
+    color: rgb(233, 125, 23);
+}
+.centerFlex{
+    @include js-center;
+}
+.whiteColor{
+    color: white;
+}
+.prviNaslov{
+    @include after1;
+}
+.drugiNaslov{
+    @include after2;
+}
+.treciNaslov{
+    @include after3;
+}
+.pt-50{
+    padding-top: 50px;
+}
+.mx-40{
+    margin: 0px 40px; 
+}
+.text-center{
+    text-align: center;
+}
+::-webkit-scrollbar {
+    width: 10px;
+}
+::-webkit-scrollbar-track {
+    background: rgba(0,0,0,0.5);
+}
+::-webkit-scrollbar-thumb {
+    background: #1f1f1f;
+}
+::-webkit-scrollbar-thumb:hover {
+    background: $crna;
+}
+.error, .errorContact{
+    width: 100%;
+    color: red;
+    text-align: center;
+}
+#adressInput, #selectStore{
+    display: none;
+}
+.border-none{
+    border: none;
+}
+form{
+    border: 1px solid $crna;
+    width: 100%;
+    .formaPolje{
+        width: 70%;
+        margin: 10px auto;
+        @include fleks;
+        @include fleksKolona;
+        input:hover, input:focus{
+            transition: 0.5s;
+            background-color: $crna;
+            color: white;
+        }
+        input, select, textarea{
+            width: 100%;
+            margin-bottom: 5px;
+            padding: 7px 15px;
+        }
+        label{
+            width: 100%;
+            padding: 10px 0px;
+        }
+    }
+    .dugme{  
+        button{
+            width: 60%;
+            margin: 10px auto;
+            background-color: rgba(0, 0, 0, 0);
+            outline: none;
+            padding: 5px 10px;
+            cursor: pointer;
+        }
+        :hover{
+            transition: 0.5s;
+            background-color: $crna;
+            color: white;
+        }
+    }
+    .formaPoljeRadio{
+        width: 70%;
+        margin: 15px auto;
+        @include fleks;
+        @include js-center;
+        .radioDugme{
+            width: 48%;
+            @include fleks;
+            justify-content: center;
+            .labelaRadio{
+                text-align: right;
+                margin-right: 10px;
+            }
+        }
+    }
+}
+#modalItem{
+    width: 100%;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.7);
+    position: fixed;
+    z-index: 9;
+    top: 0;
+    left: 0;
+    display: none;
+    flex-wrap: wrap;
+    @include js-center;
+    @include ai-center;
+    .modalContent{
+        width: 50%;
+        background-color: white;
+        position: relative;
+        #zatvaranjeModal{
+            position: absolute;
+            top: 2px;
+            right: 10px;
+            cursor: pointer;
+            font-size: 20px; 
+        }
+        #ispisModal{
+            width: 100%;
+            height: 100%;
+            @include fleks;
+            @include js-center;
+            .slikaModal{
+                width: 40%;
+                img{
+                    width: 100%;
+                }
+            }
+            .modalText{
+                width: 50%;
+                margin-left: 20px;
+                h2, p{
+                    padding-top: 30px;
+                }
+                .addToCartModal{
+                    margin: 40px 0px;
+                    button, input{
+                        background-color: rgba(0,0,0,0);
+                        padding: 7px 15px;
+                    }
+                    input[type=number]{
+                        width: 20%;
+                    }
+                }
+                .cene{
+                    width: 50%;
+                    @include fleks;
+                    justify-content: flex-start;
+                    .cena{
+                        width: 48%;
+                        font-size: 20px;
+                    }
+                }
+            }
+        }
+    }
+}
+.successModal{
+    width: 100%;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.7);
+    display: none;
+    flex-wrap: wrap;
+    @include js-center;
+    @include ai-center;
+    .messageBox{
+        position: relative;
+        width: 30%;
+        background-color: white;
+        #zatvaranjeSuccess{
+            position: absolute;
+            cursor: pointer;
+            top: 0;
+            right: 10px;
+        }
+        .messageContent{
+            width: 80%;
+            margin: 0px auto;
+            text-align: center;
+            h3{
+                padding: 20px 0px;
+            }
+            a{
+                button{
+                    background-color: rgba(0, 0, 0, 0);
+                    border: 1px solid black;
+                    padding: 5px 10px;  
+                    margin-bottom: 20px;
+                    cursor: pointer;
+                }
+                button:hover{
+                    transition: 0.5s;
+                    background-color: $crna;
+                    color: white;
+                }
+            }
+        }
+    }
+}
