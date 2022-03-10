@@ -727,39 +727,93 @@ body .cartShop #cartContent {
   width: 60%;
 }
 
-body .cartShop #cartContent table {
+body .cartShop #cartContent .cartItem {
   width: 100%;
-  border: 1px solid black;
-  border-collapse: collapse;
+  border: 1px solid #121212;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
 }
 
-body .cartShop #cartContent table tr th, body .cartShop #cartContent table tr td {
+body .cartShop #cartContent .cartItem .cartItemSlika {
+  width: 40%;
+}
+
+body .cartShop #cartContent .cartItem .cartItemSlika img {
+  width: 100%;
+}
+
+body .cartShop #cartContent .cartItem .cartItemInfo {
+  width: 60%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+body .cartShop #cartContent .cartItem .cartItemInfo .cartItemNaslov, body .cartShop #cartContent .cartItem .cartItemInfo .totalForItem {
+  width: 100%;
   padding: 10px 20px;
-  border: 1px solid black;
-  border-collapse: collapse;
   text-align: center;
 }
 
-body .cartShop #cartContent table tr th img, body .cartShop #cartContent table tr td img {
-  width: 30%;
+body .cartShop #cartContent .cartItem .cartItemInfo .cartItemQty {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  text-align: center;
 }
 
-body .cartShop #cartContent table tr th button, body .cartShop #cartContent table tr td button {
-  background-color: rgba(0, 0, 0, 0);
+body .cartShop #cartContent .cartItem .cartItemInfo .cartItemQty .qtyCheck {
+  width: 48%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+body .cartShop #cartContent .cartItem .cartItemInfo .cartItemQty .qtyCheck button {
+  background-color: white;
   border: 1px solid black;
-  padding: 5px 10px;
   cursor: pointer;
+  padding: 10px 20px;
 }
 
-body .cartShop #cartContent table tr th button:hover, body .cartShop #cartContent table tr td button:hover {
-  -webkit-transition: 0.5s;
-  transition: 0.5s;
+body .cartShop #cartContent .cartItem .cartItemInfo .cartItemQty .qtyCheck :hover {
   background-color: #121212;
   color: white;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+}
+
+body .cartShop #cartContent .cartItem .cartItemInfo .cartItemQty .qtyCheck input[type=number] {
+  padding: 10px 20px;
 }
 
 body .cartShop .formaCartBlock {
   width: 30%;
+}
+
+body .cartShop .formaCartBlock #totalPrice {
+  text-align: center;
+  padding: 10px 0px;
+  width: 100%;
 }
 
 body footer {
@@ -801,8 +855,29 @@ body footer .copyright p a {
   color: #e97d17;
 }
 
+#miniModal {
+  position: fixed;
+  top: 50px;
+  right: 50px;
+  z-index: 9;
+  width: 10%;
+  text-align: center;
+  padding: 10px 20px;
+  background-color: white;
+  display: none;
+  border: 3px solid #121212;
+}
+
 .aPortfolio {
   color: #e97d17;
+}
+
+.p-20 {
+  padding-top: 20px;
+}
+
+.p-50 {
+  padding-top: 50px;
 }
 
 .centerFlex {
@@ -882,6 +957,10 @@ body footer .copyright p a {
 
 .border-none {
   border: none;
+}
+
+.orange {
+  color: #e97d17;
 }
 
 form {
@@ -1117,6 +1196,9 @@ form .formaPoljeRadio .radioDugme .labelaRadio {
 }
 
 @media screen and (max-width: 1450px) {
+  #miniModal {
+    width: 20%;
+  }
   body main .blackCollection .blackTekst {
     padding: 0px;
   }
@@ -1146,6 +1228,9 @@ form .formaPoljeRadio .radioDugme .labelaRadio {
 }
 
 @media screen and (max-width: 1030px) {
+  body .cartShop #cartContent {
+    width: 100%;
+  }
   body main #cover .bannerBlack .centerBlack {
     width: 50%;
   }
@@ -1199,9 +1284,18 @@ form .formaPoljeRadio .radioDugme .labelaRadio {
   body .contactShop {
     width: 100%;
   }
+  body .cartShop .formaCartBlock {
+    width: 100%;
+  }
 }
 
 @media screen and (max-width: 770px) {
+  body .cartShop #cartContent .cartItem .cartItemInfo .cartItemQty .qtyCheck button {
+    padding: 5px 10px;
+  }
+  #miniModal {
+    width: 30%;
+  }
   body header #logo h1 {
     font-size: 20px;
   }
@@ -1222,14 +1316,6 @@ form .formaPoljeRadio .radioDugme .labelaRadio {
   }
   body header .ikonice {
     width: 10%;
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -ms-flex-wrap: wrap;
-    flex-wrap: wrap;
-    -webkit-box-pack: center;
-    -ms-flex-pack: center;
-    justify-content: center;
   }
   body main .blackCollection .blackSlike {
     display: none;
@@ -1267,6 +1353,22 @@ form .formaPoljeRadio .radioDugme .labelaRadio {
 }
 
 @media screen and (max-width: 430px) {
+  body main .containerShop #contentShop .sortShop .sort select, body main .containerShop #contentShop .sortShop .sort input {
+    width: 33%;
+  }
+  body .cartShop #cartContent h3 {
+    font-size: 16px;
+  }
+  body .cartShop #cartContent .cartItem .cartItemSlika, body .cartShop #cartContent .cartItem .cartItemInfo {
+    width: 100%;
+  }
+  body .cartShop #cartContent .cartItem .cartItemInfo .cartItemQty .qtyCheck {
+    width: 100%;
+    padding-bottom: 10px;
+  }
+  #miniModal {
+    width: 50%;
+  }
   body main #cover, body main #cover .bannerBlack, body main #cover #coverPicture .imageModel img {
     height: 60vh;
   }
@@ -1297,5 +1399,15 @@ form .formaPoljeRadio .radioDugme .labelaRadio {
   body #navMeni #emptySpace, body #filterShop #filterFlexEmptySpace {
     width: 25%;
   }
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type=number] {
+  -moz-appearance: textfield;
 }
 /*# sourceMappingURL=style.css.map */

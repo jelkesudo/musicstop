@@ -20,7 +20,7 @@ window.onload = () => {
     clickOpenClose("zatvaranje", "navMeni", "none");
     clickOpenClose("emptySpace", "navMeni", "none");
 
-    if(url == "/musicstop/" || url == "/musicstop/index.html"){
+    if(url == "/" || url == "/index.html"){
         ispisCarousel();
         $("#coverPicture").slick({
             infinite: true,
@@ -32,7 +32,7 @@ window.onload = () => {
             draggable: false
         });
     }
-    if(url == "/musicstop/shop.html"){
+    if(url == "/shop.html"){
         ajaxCallBack("current", storeCurrent);
         $("#sortPrice").change(filterChange);
         $("#sortShowPerPage").change(filterChange);
@@ -44,7 +44,7 @@ window.onload = () => {
         clickOpenClose("zatvaranjeFilter", "filterShop", "none");
         clickOpenClose("zatvaranjeModal", "modalItem", "none");
     }
-    if(url == "/musicstop/contact.html"){
+    if(url == "/contact.html"){
 
         clickOpenClose("zatvaranjeSuccess", "messageSent", "none");
         let imePrezime = idUnos("fullNameMessage");
@@ -93,7 +93,7 @@ window.onload = () => {
             checkBoxCheck(selectReason, 2, "Please choose a reason.", errorBlocks);
         });
     }
-    if(url == "/musicstop/cart.html"){
+    if(url == "/cart.html"){
         ispisCart();
 
         let imePrezime = idUnos("fullName");
@@ -105,14 +105,14 @@ window.onload = () => {
 
         let regexFullName = /^[A-ZČĆŠĐŽ][a-zčćžđš]{2,20}\s[A-ZČĆŠĐŽ][a-zčćžđš]{2,20}$/;
         let regexEmail = /^[a-zA-Z0-9._%-]+@[a-zA-Z0-9.-]+.[a-zA-Z]{2,4}$/;
-        let regexAdress = /^[A-Za-z0-9\s\/-]{5,}[0-9]{1,}$/;
+        let regexAdress = /^[A-Za-z0-9\s\/-]{5,},(\s)[0-9]{1,}$/;
 
         $("#formaCart").submit((e) => {
             e.preventDefault();
             errorArray = [];
             checkRegex(regexFullName, imePrezime, 0, "Invalid name, it must contain first and last name (example: Pera Perić).", errorBlocks);
             checkRegex(regexEmail, email, 1, "Invalid email, example: name@domain.com.", errorBlocks);
-            checkRegex(regexAdress, adresa, 2, "Adress must contain a name of the street as well as the house number.", errorBlocks);
+            checkRegex(regexAdress, adresa, 2, "Adress must contain a name of the street and a house number. example: Steet, 6 (after the comma there must be a space)", errorBlocks);
             checkRadio(entity, 3, "Please select an option.", errorBlocks);
             if(errorArray.length == 0){
                 localStorage.removeItem("cart");
@@ -133,7 +133,7 @@ window.onload = () => {
             checkRegex(regexEmail, email, 1, "Invalid email, example: name@domain.com.", errorBlocks);
         });
         $(adresa).change(() => {
-            checkRegex(regexAdress, adresa, 2, "Adress must contain a name of the street as well as the house number.", errorBlocks);
+            checkRegex(regexAdress, adresa, 2, "Adress must contain a name of the street and a house number. example: Steet, 6 (after the comma there must be a space)", errorBlocks);
         });
         $(entity).change(() => {
             checkRadio(entity, 3, "Please select an option.", errorBlocks);
@@ -251,30 +251,43 @@ function ispisArticle(data){
 function ispisCart(){
     let html =  "";
     let ukupnaCena = 0;
-    if(articlesInCart != undefined || articlesInCart){
-        let brojac = 1;
-        html = "<table>"; //<td>${c.quantity}</td>
+    if(articlesInCart != undefined && articlesInCart && articlesInCart.length != 0){
+        html = "";
+        console.log(articlesInCart);
         for(let c of articlesInCart){
             for(let p of productsArray){
                 if(c.id == p.id){
-                    html += `<tr>
-                                <td>${brojac++}</td>
-                                <td><img src="assets/img/products/${p.img.src}" alt="${p.img.alt}"/></td>
-                                <td>${p.name}</td>
-                                <td><button data-id="${c.id}" class="decrementQty">-</button><p>${c.quantity}</p><button data-id="${c.id}" class="incrementQty">+</button></td>
-                                <td>${parseFloat(p.price.new) * 1000 * parseFloat(c.quantity)} RSD</td>
-                                <td><button data-id="${c.id}" class="removeArticleArray">Remove</button></td>
-                            </tr>`;
+                    html += `<div class="cartItem">
+                    <div class="cartItemSlika">
+                        <img src="assets/img/products/${p.img.src}" alt="${p.img.alt}">
+                    </div>
+                    <div class="cartItemInfo">
+                        <div class="cartItemNaslov">
+                            <h2>${p.name}</h2>
+                        </div>
+                        <div class="totalForItem">
+                            <p>${p.price.new} RSD x ${c.quantity} = ${parseFloat(p.price.new) * 1000 * parseFloat(c.quantity)} RSD</p> 
+                        </div>
+                        <div class="cartItemQty">
+                            <div class="qtyCheck">
+                                <button data-id="${c.id}" class="decrementQty">Remove One</button><button data-id="${c.id}" class="incrementQty">Add One</button>
+                            </div>
+                            <div class="qtyCheck">
+                                <button data-id="${c.id}" class="removeArticleArray">Remove All</button>
+                            </div>
+                        </div>
+                    </div>
+                    </div>`;
                     ukupnaCena += parseFloat(p.price.new) * 1000 * parseFloat(c.quantity);
                 }
             }
         }
-        html += `<tr><td colspan="6"><h3>Total price: ${ukupnaCena} RSD</h3></td></tr></table>`;
     }
     else{
-        html = `<table><tr><td colspan="6"><h3>The cart is empty. You can shop by clicking <a class="orange" href="shop.html">here</a></h3></td></tr></table>`;
+        html = `<h3 class="text-center p-50">The cart is empty. You can shop by clicking <a class="orange" href="shop.html">here</a></h3>`;
     }
-    $("#cartContent").html(html);
+    idUnos("cartContent").innerHTML = html;
+    idUnos("totalPrice").innerHTML = `<h3>Total price: ${ukupnaCena} RSD</h3>`;
     $('.removeArticleArray').click(ukloniIzKorpeCelo);
     $('.incrementQty').click(increQty);
     $('.decrementQty').click(decreQty);
@@ -333,7 +346,7 @@ function ispisModal(data){
                 </div>
                 <div class="modalText">
                     <h2 class="drugiNaslov">${proizvod.name}</h2>
-                    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Labore numquam possimus cum laborum perferendis! Sunt voluptates, facere nemo, dolorum porro necessitatibus ab minima officiis est corporis, nulla ullam aliquam doloremque.</p>
+                    <p>${proizvod.text}</p>
                     <div class="cene">
                         <div class="cena">
                             <p>${proizvod.price.new} RSD</p>
@@ -358,7 +371,8 @@ function addToCart(){
 
     if(articlesInCart){
         if(dodatoVec()){
-            alert("dodato je vec");
+            $("#miniModal").show("fast");
+            sakrijModal();
         }
         else{
             dodajNovi();
@@ -387,6 +401,11 @@ function addToCart(){
             quantity: 1
         });
         setItemToLocalStorage("cart", productsFromStorage);
+    }
+    function sakrijModal(){
+        setTimeout(() => {
+            $("#miniModal").hide("fast");
+        }, 1000);
     }
 }
 function korpaBroj(){

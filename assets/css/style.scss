@@ -543,29 +543,48 @@ body{
         @include space-a;
         #cartContent{
             width: 60%;
-            table{
+            .cartItem{
                 width: 100%;
-                border: 1px solid black;
-                border-collapse: collapse;
-                tr{
-                    th, td{
+                border: 1px solid $crna;
+                @include fleks;
+                @include js-center;
+                .cartItemSlika{
+                    width: 40%;
+                    img{
+                        width: 100%;
+                    }
+                }
+                .cartItemInfo{
+                    width: 60%;
+                    @include fleks;
+                    align-items: center;
+                    .cartItemNaslov, .totalForItem{
+                        width: 100%;
                         padding: 10px 20px;
-                        border: 1px solid black;
-                        border-collapse: collapse;
                         text-align: center;
-                        img{
-                            width: 30%;
-                        }
-                        button{
-                            background-color: rgba(0, 0, 0, 0);
-                            border: 1px solid black;
-                            padding: 5px 10px;  
-                            cursor: pointer;
-                        }
-                        button:hover{
-                            transition: 0.5s;
-                            background-color: $crna;
-                            color: white;
+                    }
+                    .cartItemQty{
+                        width: 100%;
+                        @include fleks;
+                        text-align: center;
+                        .qtyCheck{
+                            button{
+                                background-color: white;
+                                border: 1px solid black;
+                                cursor: pointer;
+                                padding: 10px 20px;
+                            }
+                            :hover{
+                                background-color: $crna;
+                                color: white;
+                                transition: 0.5s;
+                            }
+                            input[type=number] {
+                                padding: 10px 20px;
+                            }
+                            width: 48%;
+                            @include fleks;
+                            @include js-center;
                         }
                     }
                 }
@@ -573,6 +592,11 @@ body{
         }
         .formaCartBlock{
             width: 30%;
+            #totalPrice{
+                text-align: center;
+                padding: 10px 0px;
+                width: 100%;
+            }
         }
     }
     footer{
@@ -605,8 +629,26 @@ body{
         }
     }
 }
+#miniModal{
+    position: fixed;
+    top: 50px;
+    right: 50px;
+    z-index: 9;
+    width: 10%;
+    text-align: center;
+    padding: 10px 20px;
+    background-color: white;
+    display: none;
+    border: 3px solid $crna;
+}
 .aPortfolio{
     color: rgb(233, 125, 23);
+}
+.p-20{
+    padding-top: 20px;
+}
+.p-50{
+    padding-top: 50px;
 }
 .centerFlex{
     @include js-center;
@@ -654,6 +696,9 @@ body{
 }
 .border-none{
     border: none;
+}
+.orange{
+    color:rgb(233, 125, 23);
 }
 form{
     border: 1px solid $crna;
@@ -818,6 +863,9 @@ form{
     }
 }
 @media screen and (max-width: 1450px) {
+    #miniModal{
+        width: 20%;
+    }
     body main .blackCollection .blackTekst {
         padding: 0px;
     }
@@ -846,6 +894,9 @@ form{
     }
 }
 @media screen and (max-width: 1030px) {
+    body .cartShop #cartContent {
+        width: 100%;
+    }
     body main #cover .bannerBlack .centerBlack {
         width: 50%;
     }
@@ -896,8 +947,17 @@ form{
     body .contactShop {
         width: 100%;
     }
+    body .cartShop .formaCartBlock {
+        width: 100%;
+    }
 }
 @media screen and (max-width: 770px) {
+    body .cartShop #cartContent .cartItem .cartItemInfo .cartItemQty .qtyCheck button {
+        padding: 5px 10px;
+    }
+    #miniModal{
+        width: 30%;
+    }
     body header #logo h1{
         font-size: 20px;
     }
@@ -918,14 +978,6 @@ form{
     }
     body header .ikonice {
         width: 10%;
-        display: -webkit-box;
-        display: -ms-flexbox;
-        display: flex;
-        -ms-flex-wrap: wrap;
-        flex-wrap: wrap;
-        -webkit-box-pack: center;
-        -ms-flex-pack: center;
-        justify-content: center;
     }
     body main .blackCollection .blackSlike {
         display: none;
@@ -962,12 +1014,25 @@ form{
     }
 }
 @media screen and (max-width: 430px) {
+    body main .containerShop #contentShop .sortShop .sort select, body main .containerShop #contentShop .sortShop .sort input {
+        width: 33%;
+    }
+    body .cartShop #cartContent h3{
+        font-size: 16px;
+    }
+    body .cartShop #cartContent .cartItem .cartItemSlika, body .cartShop #cartContent .cartItem .cartItemInfo{
+        width: 100%;
+    }
+    body .cartShop #cartContent .cartItem .cartItemInfo .cartItemQty .qtyCheck {
+        width: 100%;
+        padding-bottom: 10px;
+    }
+    #miniModal{
+        width: 50%;
+    }
     body main #cover, body main #cover .bannerBlack, body main #cover #coverPicture .imageModel img {
         height: 60vh;
     }
-    // body main #cover {
-    //     width: 100%;
-    // }
     body main #cover .bannerBlack .centerBlack {
         width: 100%;
     }
@@ -1000,4 +1065,14 @@ form{
     body #navMeni #emptySpace, body #filterShop #filterFlexEmptySpace{
         width: 25%;
     }
+}
+
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+input[type=number] {
+  -moz-appearance: textfield;
 }
