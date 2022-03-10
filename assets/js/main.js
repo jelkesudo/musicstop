@@ -68,9 +68,8 @@ window.onload = () => {
             if(errorArray.length == 0){
                 localStorage.removeItem("cart");
                 korpaBroj();
-                $("#messageSent").css({
-                    display: "flex",
-                    transition: "0.5s"
+                $("#messageSent").show("fast").css({
+                    display: "flex"
                 });
                 $("#zatvaranjeSuccess").click(() =>{
                     idUnos("formaKontakt").submit();
@@ -117,7 +116,12 @@ window.onload = () => {
             if(errorArray.length == 0){
                 localStorage.removeItem("cart");
                 korpaBroj();
-                idUnos("formaCart").submit();
+                $("#orderSuccess").show("fast").css({
+                    display: "flex"
+                });
+                $("#zatvaranjeSuccess").click(() => {
+                    idUnos("formaCart").submit();
+                });
             }
         });
 
@@ -195,7 +199,7 @@ function ispisMeni(data){
         html += `<li><a href="${s.href}">${s.name}</a></li>`;
     }
     $("#meniLista").html(html);
-    html += `<li><a href="#">Documentation</a></li>`;
+    html += `<li><a href="Dokumentacija.pdf" target="_blank">Documentation</a></li>`;
     $("#footerNav").html(html);
 }
 function ispisCarousel(){

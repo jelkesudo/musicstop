@@ -1353,6 +1353,9 @@ form .formaPoljeRadio .radioDugme .labelaRadio {
 }
 
 @media screen and (max-width: 430px) {
+  .successModal .messageBox {
+    width: 80%;
+  }
   body main .containerShop #contentShop .sortShop .sort select, body main .containerShop #contentShop .sortShop .sort input {
     width: 33%;
   }
