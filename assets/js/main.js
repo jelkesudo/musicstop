@@ -93,7 +93,7 @@ window.onload = () => {
             checkBoxCheck(selectReason, 2, "Please choose a reason.", errorBlocks);
         });
     }
-    if(url == "/musicstop//cart.html"){
+    if(url == "/musicstop/cart.html"){
         ispisCart();
 
         let imePrezime = idUnos("fullName");
